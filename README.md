@@ -1,51 +1,148 @@
-# CollabHub — Student Project Collaboration Platform
+# CollabHub – Student Project Collaboration Platform
 
-A full-stack web application where students can publish project ideas, discover collaborations, search by skills/category and send join requests.
+A web-based platform that helps students discover project opportunities, explore ideas, and connect with other students to collaborate on projects.
+
+## About the Project
+
+Finding teammates with shared technical interests and discovering suitable student projects can be challenging.
+
+**CollabHub** aims to simplify this process by providing a common platform where students can publish project ideas, explore available projects, and submit requests to join teams.
+
+This project is being developed as a student collaboration platform, with plans for further improvements in functionality, security, and scalability.
 
 ## Features
-- Create and browse student project posts
-- Search project title, description and skills
-- Filter by project category
-- Add required skills and desired team size
-- Submit join requests with contact details and an introduction
-- Prevent duplicate requests from the same email for one project
-- MongoDB persistence and REST API
-- Responsive HTML/CSS/JavaScript interface
 
-## Stack
-HTML5, CSS3, vanilla JavaScript, Node.js, Express.js, MongoDB, Mongoose.
+- **Create Projects:** Publish project details and collaboration opportunities.
+- **Browse Projects:** Explore projects created by other students.
+- **Search and Filter:** Find projects based on relevant information.
+- **Join Requests:** Submit requests to participate in projects.
+- **Duplicate Request Prevention:** Prevent repeated join requests for the same project.
+- **Self-Join Restriction:** Prevent a project author from submitting a join request using the same email address.
+- **Responsive Interface:** Access the application through different screen sizes.
+- **Database Integration:** Store project information and join requests using MongoDB.
 
-## Run locally
-1. Install Node.js LTS from https://nodejs.org/.
-2. Create a free MongoDB Atlas database at https://www.mongodb.com/atlas/database.
-3. In Atlas, create a database user and allow your current IP under Network Access.
-4. Select Connect → Drivers and copy the connection URI.
-5. Open this project folder in VS Code terminal and run `npm install`.
-6. Copy `.env.example` to a new file named `.env`.
-7. Replace the example URI in `.env` with your Atlas URI and correct username/password. Do not upload `.env` to GitHub.
-8. Run `npm start`.
-9. Open http://localhost:3000.
+## Technology Stack
 
-## API routes
-| Method | Endpoint | Purpose |
-|---|---|---|
-| GET | `/api/health` | API health check |
-| GET | `/api/projects` | List/search/filter projects |
-| POST | `/api/projects` | Create a project |
-| GET | `/api/projects/:id` | Get project and requests |
-| PATCH | `/api/projects/:id` | Update project status |
-| DELETE | `/api/projects/:id` | Delete project and its requests |
-| POST | `/api/projects/:id/requests` | Submit join request |
-| PATCH | `/api/requests/:id` | Update request status |
+| Technology | Purpose |
+|---|---|
+| HTML | Application structure |
+| CSS | Styling and responsive design |
+| JavaScript | Frontend functionality |
+| Node.js | JavaScript runtime |
+| Express.js | Backend and REST API |
+| MongoDB | Database |
+| Mongoose | MongoDB object modelling |
 
-## Structure
-- `public/` — frontend HTML, CSS and JavaScript
-- `src/models/` — Mongoose database models
-- `server.js` — Express server and API routes
-- `.env.example` — environment variable template
+## Project Structure
 
-## Important limitation
-This assignment/demo version does not implement login or authorization. The request-management API is not protected. A production application must add authentication, authorization, validation, rate limiting and secure deployment.
+```text
+CollabHub/
+├── public/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+├── src/
+│   └── models/
+│       ├── Project.js
+│       └── JoinRequest.js
+├── .env.example
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+└── server.js
+```
 
-## Future improvements
-Student accounts, owner dashboard for reviewing requests, notifications, bookmarks, chat, automated tests and deployment.
+## Getting Started
+
+Follow these steps to run CollabHub locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/mohammedlaeeq/CollabHub.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd CollabHub
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file in the project root directory.
+
+Add your MongoDB connection string:
+
+```env
+MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/collabhub?retryWrites=true&w=majority
+PORT=3000
+```
+
+Replace the placeholder values with your own MongoDB Atlas credentials.
+
+**Important:** Never upload your actual `.env` file or database credentials to GitHub.
+
+### 5. Start the Application
+
+```bash
+npm start
+```
+
+For development:
+
+```bash
+npm run dev
+```
+
+### 6. Open the Application
+
+Visit:
+
+```text
+http://localhost:3000
+```
+
+Make sure MongoDB is accessible and your environment variables are configured correctly.
+
+## Current Project Limitations
+
+The current version is an early working implementation.
+
+- User registration and login are not implemented.
+- Authentication and role-based authorization are not yet available.
+- Join requests currently rely on information submitted by the client and do not provide verified student identities.
+
+These limitations are part of the planned development scope.
+
+## Future Enhancements
+
+The following features are planned for future versions:
+
+- User registration and secure authentication.
+- Individual student profiles.
+- Personalized student dashboards.
+- Project team management.
+- Real-time collaboration and notifications.
+- Improved project discovery and recommendation.
+- Stronger validation, security, and testing.
+- Deployment and scalability improvements.
+
+## Project Goal
+
+The long-term goal of CollabHub is to develop a reliable and user-friendly student collaboration ecosystem that encourages teamwork, technical learning, and project development.
+
+## Repository
+
+GitHub: https://github.com/mohammedlaeeq/CollabHub
+
+---
+
+**CollabHub – Discover. Connect. Collaborate.**
